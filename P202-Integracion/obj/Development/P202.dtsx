@@ -1,0 +1,1494 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/27/2024 2:48:40 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="MIKE"
+  DTS:CreatorName="MIKE\jmads"
+  DTS:DTSID="{C9895D11-3F05-4ABD-ABAD-69629910EFDE}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5556.0"
+  DTS:LocaleID="2058"
+  DTS:ObjectName="P202"
+  DTS:PackageType="5"
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{C18B9804-93FA-4BD4-9669-42ED20218A1C}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\P202_ETL"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{242723A4-A434-41B6-A83E-EB5680DE3DAE}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="P202_ETL"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\P202_ETL\COMPRA_DESTINO"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="COMPRA_DESTINO"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"COMPRA_DESTINO"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\P202_ETL\COMPRA_DESTINO.Connections[IDbConnection]"
+                  connectionManagerID="{B44C3172-0D98-4CF0-8AAB-61AEC8824E54}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MIKE.AdventureWorksETL]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\P202_ETL\COMPRA_DESTINO.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\P202_ETL\COMPRA_DESTINO.Inputs[Entrada de destino de ADO NET].Columns[PurchaseOrderID]"
+                      cachedDataType="i4"
+                      cachedName="PurchaseOrderID"
+                      externalMetadataColumnId="Package\P202_ETL\COMPRA_DESTINO.Inputs[Entrada de destino de ADO NET].ExternalColumns[PurchaseOrderID]"
+                      lineageId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[PurchaseOrderID]" />
+                    <inputColumn
+                      refId="Package\P202_ETL\COMPRA_DESTINO.Inputs[Entrada de destino de ADO NET].Columns[EmployeeID]"
+                      cachedDataType="i4"
+                      cachedName="EmployeeID"
+                      externalMetadataColumnId="Package\P202_ETL\COMPRA_DESTINO.Inputs[Entrada de destino de ADO NET].ExternalColumns[EmployeeID]"
+                      lineageId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[EmployeeID]" />
+                    <inputColumn
+                      refId="Package\P202_ETL\COMPRA_DESTINO.Inputs[Entrada de destino de ADO NET].Columns[VendorID]"
+                      cachedDataType="i4"
+                      cachedName="VendorID"
+                      externalMetadataColumnId="Package\P202_ETL\COMPRA_DESTINO.Inputs[Entrada de destino de ADO NET].ExternalColumns[VendorID]"
+                      lineageId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[VendorID]" />
+                    <inputColumn
+                      refId="Package\P202_ETL\COMPRA_DESTINO.Inputs[Entrada de destino de ADO NET].Columns[ShipMethodID]"
+                      cachedDataType="i4"
+                      cachedName="ShipMethodID"
+                      externalMetadataColumnId="Package\P202_ETL\COMPRA_DESTINO.Inputs[Entrada de destino de ADO NET].ExternalColumns[ShipMethodID]"
+                      lineageId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[ShipMethodID]" />
+                    <inputColumn
+                      refId="Package\P202_ETL\COMPRA_DESTINO.Inputs[Entrada de destino de ADO NET].Columns[ShipDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ShipDate"
+                      externalMetadataColumnId="Package\P202_ETL\COMPRA_DESTINO.Inputs[Entrada de destino de ADO NET].ExternalColumns[ShipDate]"
+                      lineageId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[ShipDate]" />
+                    <inputColumn
+                      refId="Package\P202_ETL\COMPRA_DESTINO.Inputs[Entrada de destino de ADO NET].Columns[SubTotal]"
+                      cachedDataType="cy"
+                      cachedName="SubTotal"
+                      externalMetadataColumnId="Package\P202_ETL\COMPRA_DESTINO.Inputs[Entrada de destino de ADO NET].ExternalColumns[SubTotal]"
+                      lineageId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[SubTotal]" />
+                    <inputColumn
+                      refId="Package\P202_ETL\COMPRA_DESTINO.Inputs[Entrada de destino de ADO NET].Columns[TaxAmt]"
+                      cachedDataType="cy"
+                      cachedName="TaxAmt"
+                      externalMetadataColumnId="Package\P202_ETL\COMPRA_DESTINO.Inputs[Entrada de destino de ADO NET].ExternalColumns[TaxAmt]"
+                      lineageId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[TaxAmt]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\P202_ETL\COMPRA_DESTINO.Inputs[Entrada de destino de ADO NET].ExternalColumns[PurchaseOrderID]"
+                      dataType="i4"
+                      name="PurchaseOrderID" />
+                    <externalMetadataColumn
+                      refId="Package\P202_ETL\COMPRA_DESTINO.Inputs[Entrada de destino de ADO NET].ExternalColumns[EmployeeID]"
+                      dataType="i4"
+                      name="EmployeeID" />
+                    <externalMetadataColumn
+                      refId="Package\P202_ETL\COMPRA_DESTINO.Inputs[Entrada de destino de ADO NET].ExternalColumns[VendorID]"
+                      dataType="i4"
+                      name="VendorID" />
+                    <externalMetadataColumn
+                      refId="Package\P202_ETL\COMPRA_DESTINO.Inputs[Entrada de destino de ADO NET].ExternalColumns[ShipMethodID]"
+                      dataType="i4"
+                      name="ShipMethodID" />
+                    <externalMetadataColumn
+                      refId="Package\P202_ETL\COMPRA_DESTINO.Inputs[Entrada de destino de ADO NET].ExternalColumns[ShipDate]"
+                      dataType="dbTimeStamp"
+                      name="ShipDate" />
+                    <externalMetadataColumn
+                      refId="Package\P202_ETL\COMPRA_DESTINO.Inputs[Entrada de destino de ADO NET].ExternalColumns[SubTotal]"
+                      dataType="numeric"
+                      name="SubTotal"
+                      precision="19"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\P202_ETL\COMPRA_DESTINO.Inputs[Entrada de destino de ADO NET].ExternalColumns[TaxAmt]"
+                      dataType="numeric"
+                      name="TaxAmt"
+                      precision="19"
+                      scale="255" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\P202_ETL\COMPRA_DESTINO.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\P202_ETL\COMPRA_DESTINO.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\P202_ETL\COMPRA_DESTINO.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\P202_ETL\COMPRA_DESTINO.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\P202_ETL\COMPRA_DESTINO.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\P202_ETL\COMPRA_DESTINO.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\P202_ETL\COMPRA_ORIGEN"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="COMPRA_ORIGEN"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select PurchaseOrderID, EmployeeID, VendorID, ShipMethodID, ShipDate, SubTotal, TaxAmt from Purchasing.PurchaseOrderHeader;</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\P202_ETL\COMPRA_ORIGEN.Connections[IDbConnection]"
+                  connectionManagerID="{10E6D92D-2BF6-4815-BB79-5BD174AA878A}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MIKE.AdventureWorks2022]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[PurchaseOrderID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de origen de ADO NET].ExternalColumns[PurchaseOrderID]"
+                      lineageId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[PurchaseOrderID]"
+                      name="PurchaseOrderID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[EmployeeID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de origen de ADO NET].ExternalColumns[EmployeeID]"
+                      lineageId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[EmployeeID]"
+                      name="EmployeeID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[VendorID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de origen de ADO NET].ExternalColumns[VendorID]"
+                      lineageId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[VendorID]"
+                      name="VendorID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[ShipMethodID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de origen de ADO NET].ExternalColumns[ShipMethodID]"
+                      lineageId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[ShipMethodID]"
+                      name="ShipMethodID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[ShipDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de origen de ADO NET].ExternalColumns[ShipDate]"
+                      lineageId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[ShipDate]"
+                      name="ShipDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[SubTotal]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de origen de ADO NET].ExternalColumns[SubTotal]"
+                      lineageId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[SubTotal]"
+                      name="SubTotal"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[TaxAmt]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de origen de ADO NET].ExternalColumns[TaxAmt]"
+                      lineageId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[TaxAmt]"
+                      name="TaxAmt"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de origen de ADO NET].ExternalColumns[PurchaseOrderID]"
+                      dataType="i4"
+                      name="PurchaseOrderID" />
+                    <externalMetadataColumn
+                      refId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de origen de ADO NET].ExternalColumns[EmployeeID]"
+                      dataType="i4"
+                      name="EmployeeID" />
+                    <externalMetadataColumn
+                      refId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de origen de ADO NET].ExternalColumns[VendorID]"
+                      dataType="i4"
+                      name="VendorID" />
+                    <externalMetadataColumn
+                      refId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de origen de ADO NET].ExternalColumns[ShipMethodID]"
+                      dataType="i4"
+                      name="ShipMethodID" />
+                    <externalMetadataColumn
+                      refId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de origen de ADO NET].ExternalColumns[ShipDate]"
+                      dataType="dbTimeStamp"
+                      name="ShipDate" />
+                    <externalMetadataColumn
+                      refId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de origen de ADO NET].ExternalColumns[SubTotal]"
+                      dataType="cy"
+                      name="SubTotal" />
+                    <externalMetadataColumn
+                      refId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de origen de ADO NET].ExternalColumns[TaxAmt]"
+                      dataType="cy"
+                      name="TaxAmt" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[PurchaseOrderID]"
+                      dataType="i4"
+                      lineageId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[PurchaseOrderID]"
+                      name="PurchaseOrderID" />
+                    <outputColumn
+                      refId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[EmployeeID]"
+                      dataType="i4"
+                      lineageId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[EmployeeID]"
+                      name="EmployeeID" />
+                    <outputColumn
+                      refId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[VendorID]"
+                      dataType="i4"
+                      lineageId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[VendorID]"
+                      name="VendorID" />
+                    <outputColumn
+                      refId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[ShipMethodID]"
+                      dataType="i4"
+                      lineageId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[ShipMethodID]"
+                      name="ShipMethodID" />
+                    <outputColumn
+                      refId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[ShipDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[ShipDate]"
+                      name="ShipDate" />
+                    <outputColumn
+                      refId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[SubTotal]"
+                      dataType="cy"
+                      lineageId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[SubTotal]"
+                      name="SubTotal" />
+                    <outputColumn
+                      refId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[TaxAmt]"
+                      dataType="cy"
+                      lineageId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[TaxAmt]"
+                      name="TaxAmt" />
+                    <outputColumn
+                      refId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\P202_ETL\HECHOS_DESTINO"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="HECHOS_DESTINO"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."HECHOS_DESTINO"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\P202_ETL\HECHOS_DESTINO.Connections[IDbConnection]"
+                  connectionManagerID="{B44C3172-0D98-4CF0-8AAB-61AEC8824E54}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MIKE.AdventureWorksETL]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\P202_ETL\HECHOS_DESTINO.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\P202_ETL\HECHOS_DESTINO.Inputs[Entrada de destino de ADO NET].Columns[PurchaseOrderID]"
+                      cachedDataType="i4"
+                      cachedName="PurchaseOrderID"
+                      externalMetadataColumnId="Package\P202_ETL\HECHOS_DESTINO.Inputs[Entrada de destino de ADO NET].ExternalColumns[PurchaseOrderID]"
+                      lineageId="Package\P202_ETL\HECHOS_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[PurchaseOrderID]" />
+                    <inputColumn
+                      refId="Package\P202_ETL\HECHOS_DESTINO.Inputs[Entrada de destino de ADO NET].Columns[BusinessEntityID]"
+                      cachedDataType="i4"
+                      cachedName="BusinessEntityID"
+                      externalMetadataColumnId="Package\P202_ETL\HECHOS_DESTINO.Inputs[Entrada de destino de ADO NET].ExternalColumns[BusinessEntityID]"
+                      lineageId="Package\P202_ETL\HECHOS_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[BusinessEntityID]" />
+                    <inputColumn
+                      refId="Package\P202_ETL\HECHOS_DESTINO.Inputs[Entrada de destino de ADO NET].Columns[ProductID]"
+                      cachedDataType="i4"
+                      cachedName="ProductID"
+                      externalMetadataColumnId="Package\P202_ETL\HECHOS_DESTINO.Inputs[Entrada de destino de ADO NET].ExternalColumns[ProductID]"
+                      lineageId="Package\P202_ETL\HECHOS_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[ProductID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\P202_ETL\HECHOS_DESTINO.Inputs[Entrada de destino de ADO NET].ExternalColumns[PurchaseOrderID]"
+                      dataType="i4"
+                      name="PurchaseOrderID" />
+                    <externalMetadataColumn
+                      refId="Package\P202_ETL\HECHOS_DESTINO.Inputs[Entrada de destino de ADO NET].ExternalColumns[BusinessEntityID]"
+                      dataType="i4"
+                      name="BusinessEntityID" />
+                    <externalMetadataColumn
+                      refId="Package\P202_ETL\HECHOS_DESTINO.Inputs[Entrada de destino de ADO NET].ExternalColumns[ProductID]"
+                      dataType="i4"
+                      name="ProductID" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\P202_ETL\HECHOS_DESTINO.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\P202_ETL\HECHOS_DESTINO.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\P202_ETL\HECHOS_DESTINO.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\P202_ETL\HECHOS_DESTINO.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\P202_ETL\HECHOS_DESTINO.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\P202_ETL\HECHOS_DESTINO.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\P202_ETL\HECHOS_ORIGEN"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="HECHOS_ORIGEN"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select poh.PurchaseOrderID, v.BusinessEntityID, p.ProductID
+from Purchasing.PurchaseOrderHeader as poh 
+join Purchasing.Vendor as v on poh.VendorID = v.BusinessEntityID
+join Purchasing.PurchaseOrderDetail as pod on pod.PurchaseOrderID = poh.PurchaseOrderID
+join Production.Product as p on p.ProductID = pod.ProductID
+order by poh.OrderDate desc;</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\P202_ETL\HECHOS_ORIGEN.Connections[IDbConnection]"
+                  connectionManagerID="{10E6D92D-2BF6-4815-BB79-5BD174AA878A}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MIKE.AdventureWorks2022]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\P202_ETL\HECHOS_ORIGEN.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\P202_ETL\HECHOS_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[PurchaseOrderID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\P202_ETL\HECHOS_ORIGEN.Outputs[Salida de origen de ADO NET].ExternalColumns[PurchaseOrderID]"
+                      lineageId="Package\P202_ETL\HECHOS_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[PurchaseOrderID]"
+                      name="PurchaseOrderID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\P202_ETL\HECHOS_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[BusinessEntityID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\P202_ETL\HECHOS_ORIGEN.Outputs[Salida de origen de ADO NET].ExternalColumns[BusinessEntityID]"
+                      lineageId="Package\P202_ETL\HECHOS_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[BusinessEntityID]"
+                      name="BusinessEntityID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\P202_ETL\HECHOS_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[ProductID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\P202_ETL\HECHOS_ORIGEN.Outputs[Salida de origen de ADO NET].ExternalColumns[ProductID]"
+                      lineageId="Package\P202_ETL\HECHOS_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[ProductID]"
+                      name="ProductID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\P202_ETL\HECHOS_ORIGEN.Outputs[Salida de origen de ADO NET].ExternalColumns[PurchaseOrderID]"
+                      dataType="i4"
+                      name="PurchaseOrderID" />
+                    <externalMetadataColumn
+                      refId="Package\P202_ETL\HECHOS_ORIGEN.Outputs[Salida de origen de ADO NET].ExternalColumns[BusinessEntityID]"
+                      dataType="i4"
+                      name="BusinessEntityID" />
+                    <externalMetadataColumn
+                      refId="Package\P202_ETL\HECHOS_ORIGEN.Outputs[Salida de origen de ADO NET].ExternalColumns[ProductID]"
+                      dataType="i4"
+                      name="ProductID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\P202_ETL\HECHOS_ORIGEN.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\P202_ETL\HECHOS_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[PurchaseOrderID]"
+                      dataType="i4"
+                      lineageId="Package\P202_ETL\HECHOS_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[PurchaseOrderID]"
+                      name="PurchaseOrderID" />
+                    <outputColumn
+                      refId="Package\P202_ETL\HECHOS_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[BusinessEntityID]"
+                      dataType="i4"
+                      lineageId="Package\P202_ETL\HECHOS_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[BusinessEntityID]"
+                      name="BusinessEntityID" />
+                    <outputColumn
+                      refId="Package\P202_ETL\HECHOS_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[ProductID]"
+                      dataType="i4"
+                      lineageId="Package\P202_ETL\HECHOS_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[ProductID]"
+                      name="ProductID" />
+                    <outputColumn
+                      refId="Package\P202_ETL\HECHOS_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\P202_ETL\HECHOS_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\P202_ETL\HECHOS_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\P202_ETL\HECHOS_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\P202_ETL\PRODUCTO_DESTINO"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="PRODUCTO_DESTINO"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"PRODUCTO_DESTINO"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\P202_ETL\PRODUCTO_DESTINO.Connections[IDbConnection]"
+                  connectionManagerID="{B44C3172-0D98-4CF0-8AAB-61AEC8824E54}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MIKE.AdventureWorksETL]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\P202_ETL\PRODUCTO_DESTINO.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\P202_ETL\PRODUCTO_DESTINO.Inputs[Entrada de destino de ADO NET].Columns[ProductID]"
+                      cachedDataType="i4"
+                      cachedName="ProductID"
+                      externalMetadataColumnId="Package\P202_ETL\PRODUCTO_DESTINO.Inputs[Entrada de destino de ADO NET].ExternalColumns[ProductID]"
+                      lineageId="Package\P202_ETL\PRODUCTO_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[ProductID]" />
+                    <inputColumn
+                      refId="Package\P202_ETL\PRODUCTO_DESTINO.Inputs[Entrada de destino de ADO NET].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Name"
+                      externalMetadataColumnId="Package\P202_ETL\PRODUCTO_DESTINO.Inputs[Entrada de destino de ADO NET].ExternalColumns[Name]"
+                      lineageId="Package\P202_ETL\PRODUCTO_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\P202_ETL\PRODUCTO_DESTINO.Inputs[Entrada de destino de ADO NET].Columns[ProductNumber]"
+                      cachedDataType="wstr"
+                      cachedLength="25"
+                      cachedName="ProductNumber"
+                      externalMetadataColumnId="Package\P202_ETL\PRODUCTO_DESTINO.Inputs[Entrada de destino de ADO NET].ExternalColumns[ProductNumber]"
+                      lineageId="Package\P202_ETL\PRODUCTO_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[ProductNumber]" />
+                    <inputColumn
+                      refId="Package\P202_ETL\PRODUCTO_DESTINO.Inputs[Entrada de destino de ADO NET].Columns[StandardCost]"
+                      cachedDataType="cy"
+                      cachedName="StandardCost"
+                      externalMetadataColumnId="Package\P202_ETL\PRODUCTO_DESTINO.Inputs[Entrada de destino de ADO NET].ExternalColumns[StandardCost]"
+                      lineageId="Package\P202_ETL\PRODUCTO_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[StandardCost]" />
+                    <inputColumn
+                      refId="Package\P202_ETL\PRODUCTO_DESTINO.Inputs[Entrada de destino de ADO NET].Columns[ListPrice]"
+                      cachedDataType="cy"
+                      cachedName="ListPrice"
+                      externalMetadataColumnId="Package\P202_ETL\PRODUCTO_DESTINO.Inputs[Entrada de destino de ADO NET].ExternalColumns[ListPrice]"
+                      lineageId="Package\P202_ETL\PRODUCTO_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[ListPrice]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\P202_ETL\PRODUCTO_DESTINO.Inputs[Entrada de destino de ADO NET].ExternalColumns[ProductID]"
+                      dataType="i4"
+                      name="ProductID" />
+                    <externalMetadataColumn
+                      refId="Package\P202_ETL\PRODUCTO_DESTINO.Inputs[Entrada de destino de ADO NET].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="50"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\P202_ETL\PRODUCTO_DESTINO.Inputs[Entrada de destino de ADO NET].ExternalColumns[ProductNumber]"
+                      dataType="wstr"
+                      length="25"
+                      name="ProductNumber" />
+                    <externalMetadataColumn
+                      refId="Package\P202_ETL\PRODUCTO_DESTINO.Inputs[Entrada de destino de ADO NET].ExternalColumns[StandardCost]"
+                      dataType="numeric"
+                      name="StandardCost"
+                      precision="19"
+                      scale="255" />
+                    <externalMetadataColumn
+                      refId="Package\P202_ETL\PRODUCTO_DESTINO.Inputs[Entrada de destino de ADO NET].ExternalColumns[ListPrice]"
+                      dataType="numeric"
+                      name="ListPrice"
+                      precision="19"
+                      scale="255" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\P202_ETL\PRODUCTO_DESTINO.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\P202_ETL\PRODUCTO_DESTINO.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\P202_ETL\PRODUCTO_DESTINO.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\P202_ETL\PRODUCTO_DESTINO.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\P202_ETL\PRODUCTO_DESTINO.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\P202_ETL\PRODUCTO_DESTINO.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\P202_ETL\PRODUCTO_ORIGEN"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="PRODUCTO_ORIGEN"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select ProductID, Name,ProductNumber, StandardCost, ListPrice from Production.Product;</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\P202_ETL\PRODUCTO_ORIGEN.Connections[IDbConnection]"
+                  connectionManagerID="{10E6D92D-2BF6-4815-BB79-5BD174AA878A}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MIKE.AdventureWorks2022]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\P202_ETL\PRODUCTO_ORIGEN.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\P202_ETL\PRODUCTO_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[ProductID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\P202_ETL\PRODUCTO_ORIGEN.Outputs[Salida de origen de ADO NET].ExternalColumns[ProductID]"
+                      lineageId="Package\P202_ETL\PRODUCTO_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[ProductID]"
+                      name="ProductID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\P202_ETL\PRODUCTO_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\P202_ETL\PRODUCTO_ORIGEN.Outputs[Salida de origen de ADO NET].ExternalColumns[Name]"
+                      length="50"
+                      lineageId="Package\P202_ETL\PRODUCTO_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\P202_ETL\PRODUCTO_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[ProductNumber]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\P202_ETL\PRODUCTO_ORIGEN.Outputs[Salida de origen de ADO NET].ExternalColumns[ProductNumber]"
+                      length="25"
+                      lineageId="Package\P202_ETL\PRODUCTO_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[ProductNumber]"
+                      name="ProductNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\P202_ETL\PRODUCTO_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[StandardCost]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\P202_ETL\PRODUCTO_ORIGEN.Outputs[Salida de origen de ADO NET].ExternalColumns[StandardCost]"
+                      lineageId="Package\P202_ETL\PRODUCTO_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[StandardCost]"
+                      name="StandardCost"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\P202_ETL\PRODUCTO_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[ListPrice]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\P202_ETL\PRODUCTO_ORIGEN.Outputs[Salida de origen de ADO NET].ExternalColumns[ListPrice]"
+                      lineageId="Package\P202_ETL\PRODUCTO_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[ListPrice]"
+                      name="ListPrice"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\P202_ETL\PRODUCTO_ORIGEN.Outputs[Salida de origen de ADO NET].ExternalColumns[ProductID]"
+                      dataType="i4"
+                      name="ProductID" />
+                    <externalMetadataColumn
+                      refId="Package\P202_ETL\PRODUCTO_ORIGEN.Outputs[Salida de origen de ADO NET].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="50"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\P202_ETL\PRODUCTO_ORIGEN.Outputs[Salida de origen de ADO NET].ExternalColumns[ProductNumber]"
+                      dataType="wstr"
+                      length="25"
+                      name="ProductNumber" />
+                    <externalMetadataColumn
+                      refId="Package\P202_ETL\PRODUCTO_ORIGEN.Outputs[Salida de origen de ADO NET].ExternalColumns[StandardCost]"
+                      dataType="cy"
+                      name="StandardCost" />
+                    <externalMetadataColumn
+                      refId="Package\P202_ETL\PRODUCTO_ORIGEN.Outputs[Salida de origen de ADO NET].ExternalColumns[ListPrice]"
+                      dataType="cy"
+                      name="ListPrice" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\P202_ETL\PRODUCTO_ORIGEN.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\P202_ETL\PRODUCTO_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[ProductID]"
+                      dataType="i4"
+                      lineageId="Package\P202_ETL\PRODUCTO_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[ProductID]"
+                      name="ProductID" />
+                    <outputColumn
+                      refId="Package\P202_ETL\PRODUCTO_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[Name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\P202_ETL\PRODUCTO_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\P202_ETL\PRODUCTO_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[ProductNumber]"
+                      dataType="wstr"
+                      length="25"
+                      lineageId="Package\P202_ETL\PRODUCTO_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[ProductNumber]"
+                      name="ProductNumber" />
+                    <outputColumn
+                      refId="Package\P202_ETL\PRODUCTO_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[StandardCost]"
+                      dataType="cy"
+                      lineageId="Package\P202_ETL\PRODUCTO_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[StandardCost]"
+                      name="StandardCost" />
+                    <outputColumn
+                      refId="Package\P202_ETL\PRODUCTO_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[ListPrice]"
+                      dataType="cy"
+                      lineageId="Package\P202_ETL\PRODUCTO_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[ListPrice]"
+                      name="ListPrice" />
+                    <outputColumn
+                      refId="Package\P202_ETL\PRODUCTO_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\P202_ETL\PRODUCTO_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\P202_ETL\PRODUCTO_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\P202_ETL\PRODUCTO_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\P202_ETL\VENDEDOR_DESTINO"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="VENDEDOR_DESTINO"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"VENDEDOR_DESTINO"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\P202_ETL\VENDEDOR_DESTINO.Connections[IDbConnection]"
+                  connectionManagerID="{B44C3172-0D98-4CF0-8AAB-61AEC8824E54}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MIKE.AdventureWorksETL]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\P202_ETL\VENDEDOR_DESTINO.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\P202_ETL\VENDEDOR_DESTINO.Inputs[Entrada de destino de ADO NET].Columns[BusinessEntityId]"
+                      cachedDataType="i4"
+                      cachedName="BusinessEntityId"
+                      externalMetadataColumnId="Package\P202_ETL\VENDEDOR_DESTINO.Inputs[Entrada de destino de ADO NET].ExternalColumns[BusinessEntityId]"
+                      lineageId="Package\P202_ETL\VENDEDOR_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[BusinessEntityId]" />
+                    <inputColumn
+                      refId="Package\P202_ETL\VENDEDOR_DESTINO.Inputs[Entrada de destino de ADO NET].Columns[AccountNumber]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="AccountNumber"
+                      externalMetadataColumnId="Package\P202_ETL\VENDEDOR_DESTINO.Inputs[Entrada de destino de ADO NET].ExternalColumns[AccountNumber]"
+                      lineageId="Package\P202_ETL\VENDEDOR_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[AccountNumber]" />
+                    <inputColumn
+                      refId="Package\P202_ETL\VENDEDOR_DESTINO.Inputs[Entrada de destino de ADO NET].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Name"
+                      externalMetadataColumnId="Package\P202_ETL\VENDEDOR_DESTINO.Inputs[Entrada de destino de ADO NET].ExternalColumns[Name]"
+                      lineageId="Package\P202_ETL\VENDEDOR_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\P202_ETL\VENDEDOR_DESTINO.Inputs[Entrada de destino de ADO NET].Columns[ModifiedDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ModifiedDate"
+                      externalMetadataColumnId="Package\P202_ETL\VENDEDOR_DESTINO.Inputs[Entrada de destino de ADO NET].ExternalColumns[ModifiedDate]"
+                      lineageId="Package\P202_ETL\VENDEDOR_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[ModifiedDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\P202_ETL\VENDEDOR_DESTINO.Inputs[Entrada de destino de ADO NET].ExternalColumns[BusinessEntityId]"
+                      dataType="i4"
+                      name="BusinessEntityId" />
+                    <externalMetadataColumn
+                      refId="Package\P202_ETL\VENDEDOR_DESTINO.Inputs[Entrada de destino de ADO NET].ExternalColumns[AccountNumber]"
+                      dataType="wstr"
+                      length="15"
+                      name="AccountNumber" />
+                    <externalMetadataColumn
+                      refId="Package\P202_ETL\VENDEDOR_DESTINO.Inputs[Entrada de destino de ADO NET].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="50"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\P202_ETL\VENDEDOR_DESTINO.Inputs[Entrada de destino de ADO NET].ExternalColumns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      name="ModifiedDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\P202_ETL\VENDEDOR_DESTINO.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\P202_ETL\VENDEDOR_DESTINO.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\P202_ETL\VENDEDOR_DESTINO.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\P202_ETL\VENDEDOR_DESTINO.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\P202_ETL\VENDEDOR_DESTINO.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\P202_ETL\VENDEDOR_DESTINO.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\P202_ETL\VENDEDOR_ORIGEN"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="VENDEDOR_ORIGEN"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select BusinessEntityId, AccountNumber, Name, ModifiedDate from Purchasing.Vendor;</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\P202_ETL\VENDEDOR_ORIGEN.Connections[IDbConnection]"
+                  connectionManagerID="{10E6D92D-2BF6-4815-BB79-5BD174AA878A}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MIKE.AdventureWorks2022]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\P202_ETL\VENDEDOR_ORIGEN.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\P202_ETL\VENDEDOR_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[BusinessEntityId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\P202_ETL\VENDEDOR_ORIGEN.Outputs[Salida de origen de ADO NET].ExternalColumns[BusinessEntityId]"
+                      lineageId="Package\P202_ETL\VENDEDOR_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[BusinessEntityId]"
+                      name="BusinessEntityId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\P202_ETL\VENDEDOR_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[AccountNumber]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\P202_ETL\VENDEDOR_ORIGEN.Outputs[Salida de origen de ADO NET].ExternalColumns[AccountNumber]"
+                      length="15"
+                      lineageId="Package\P202_ETL\VENDEDOR_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[AccountNumber]"
+                      name="AccountNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\P202_ETL\VENDEDOR_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\P202_ETL\VENDEDOR_ORIGEN.Outputs[Salida de origen de ADO NET].ExternalColumns[Name]"
+                      length="50"
+                      lineageId="Package\P202_ETL\VENDEDOR_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\P202_ETL\VENDEDOR_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\P202_ETL\VENDEDOR_ORIGEN.Outputs[Salida de origen de ADO NET].ExternalColumns[ModifiedDate]"
+                      lineageId="Package\P202_ETL\VENDEDOR_ORIGEN.Outputs[Salida de origen de ADO NET].Columns[ModifiedDate]"
+                      name="ModifiedDate"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\P202_ETL\VENDEDOR_ORIGEN.Outputs[Salida de origen de ADO NET].ExternalColumns[BusinessEntityId]"
+                      dataType="i4"
+                      name="BusinessEntityId" />
+                    <externalMetadataColumn
+                      refId="Package\P202_ETL\VENDEDOR_ORIGEN.Outputs[Salida de origen de ADO NET].ExternalColumns[AccountNumber]"
+                      dataType="wstr"
+                      length="15"
+                      name="AccountNumber" />
+                    <externalMetadataColumn
+                      refId="Package\P202_ETL\VENDEDOR_ORIGEN.Outputs[Salida de origen de ADO NET].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="50"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\P202_ETL\VENDEDOR_ORIGEN.Outputs[Salida de origen de ADO NET].ExternalColumns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      name="ModifiedDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\P202_ETL\VENDEDOR_ORIGEN.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\P202_ETL\VENDEDOR_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[BusinessEntityId]"
+                      dataType="i4"
+                      lineageId="Package\P202_ETL\VENDEDOR_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[BusinessEntityId]"
+                      name="BusinessEntityId" />
+                    <outputColumn
+                      refId="Package\P202_ETL\VENDEDOR_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[AccountNumber]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\P202_ETL\VENDEDOR_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[AccountNumber]"
+                      name="AccountNumber" />
+                    <outputColumn
+                      refId="Package\P202_ETL\VENDEDOR_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[Name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\P202_ETL\VENDEDOR_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\P202_ETL\VENDEDOR_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\P202_ETL\VENDEDOR_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[ModifiedDate]"
+                      name="ModifiedDate" />
+                    <outputColumn
+                      refId="Package\P202_ETL\VENDEDOR_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\P202_ETL\VENDEDOR_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\P202_ETL\VENDEDOR_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\P202_ETL\VENDEDOR_ORIGEN.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\P202_ETL.Paths[Salida de origen de ADO NET]"
+              endId="Package\P202_ETL\VENDEDOR_DESTINO.Inputs[Entrada de destino de ADO NET]"
+              name="Salida de origen de ADO NET"
+              startId="Package\P202_ETL\VENDEDOR_ORIGEN.Outputs[Salida de origen de ADO NET]" />
+            <path
+              refId="Package\P202_ETL.Paths[Salida de origen de ADO NET1]"
+              endId="Package\P202_ETL\PRODUCTO_DESTINO.Inputs[Entrada de destino de ADO NET]"
+              name="Salida de origen de ADO NET"
+              startId="Package\P202_ETL\PRODUCTO_ORIGEN.Outputs[Salida de origen de ADO NET]" />
+            <path
+              refId="Package\P202_ETL.Paths[Salida de origen de ADO NET2]"
+              endId="Package\P202_ETL\COMPRA_DESTINO.Inputs[Entrada de destino de ADO NET]"
+              name="Salida de origen de ADO NET"
+              startId="Package\P202_ETL\COMPRA_ORIGEN.Outputs[Salida de origen de ADO NET]" />
+            <path
+              refId="Package\P202_ETL.Paths[Salida de origen de ADO NET3]"
+              endId="Package\P202_ETL\HECHOS_DESTINO.Inputs[Entrada de destino de ADO NET]"
+              name="Salida de origen de ADO NET"
+              startId="Package\P202_ETL\HECHOS_ORIGEN.Outputs[Salida de origen de ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="124.8,41.6"
+          Id="Package\P202_ETL"
+          TopLeft="216.428571889291,94.8235293286482" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\P202_ETL">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="176.8,41.6"
+          Id="Package\P202_ETL\PRODUCTO_ORIGEN"
+          TopLeft="285.999995738268,51.9999992251396" />
+        <NodeLayout
+          Size="164,41.6"
+          Id="Package\P202_ETL\COMPRA_ORIGEN"
+          TopLeft="506.499992534518,43.4999994337559" />
+        <NodeLayout
+          Size="176.8,41.6"
+          Id="Package\P202_ETL\VENDEDOR_ORIGEN"
+          TopLeft="54.9999991804361,57.9999991357327" />
+        <NodeLayout
+          Size="163.2,41.6"
+          Id="Package\P202_ETL\HECHOS_ORIGEN"
+          TopLeft="723.499991089106,41.5000012516975" />
+        <NodeLayout
+          Size="182.4,41.6"
+          Id="Package\P202_ETL\VENDEDOR_DESTINO"
+          TopLeft="47.8181818859144,177.272727117341" />
+        <EdgeLayout
+          Id="Package\P202_ETL.Paths[Salida de origen de ADO NET]"
+          TopLeft="141.209090533175,99.5999991357327">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,77.6727279816081"
+              Start="0,0"
+              End="0,70.1727279816081">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,70.1727279816081" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="182.4,41.6"
+          Id="Package\P202_ETL\PRODUCTO_DESTINO"
+          TopLeft="285.785714848309,168.86898381402" />
+        <EdgeLayout
+          Id="Package\P202_ETL.Paths[Salida de origen de ADO NET1]"
+          TopLeft="375.692855293289,93.5999992251396">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,75.2689845888804"
+              Start="0,0"
+              End="0,67.7689845888804">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,67.7689845888804" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="169.6,41.6"
+          Id="Package\P202_ETL\COMPRA_DESTINO"
+          TopLeft="489.162338594006,174.537433033209" />
+        <EdgeLayout
+          Id="Package\P202_ETL.Paths[Salida de origen de ADO NET2]"
+          TopLeft="588.499992534518,85.0999994337559">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-14.5376539405122,89.4374335994526"
+              Start="0,0"
+              End="-14.5376539405122,81.9374335994526">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.7187167997263" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,40.7187167997263"
+                    Point2="0,44.7187167997263"
+                    Point3="-4,44.7187167997263" />
+                  <mssgle:LineSegment
+                    End="-10.5376539405122,44.7187167997263" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-10.5376539405122,44.7187167997263"
+                    Point2="-14.5376539405122,44.7187167997263"
+                    Point3="-14.5376539405122,48.7187167997263" />
+                  <mssgle:LineSegment
+                    End="-14.5376539405122,81.9374335994526" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="168.8,41.6"
+          Id="Package\P202_ETL\HECHOS_DESTINO"
+          TopLeft="706.293652285457,177.98365997953" />
+        <EdgeLayout
+          Id="Package\P202_ETL.Paths[Salida de origen de ADO NET3]"
+          TopLeft="805.099991089106,83.1000012516975">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-14.4063388036494,94.8836587278328"
+              Start="0,0"
+              End="-14.4063388036494,87.3836587278328">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.4418293639164" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,43.4418293639164"
+                    Point2="0,47.4418293639164"
+                    Point3="-4,47.4418293639164" />
+                  <mssgle:LineSegment
+                    End="-10.4063388036494,47.4418293639164" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-10.4063388036494,47.4418293639164"
+                    Point2="-14.4063388036494,47.4418293639164"
+                    Point3="-14.4063388036494,51.4418293639164" />
+                  <mssgle:LineSegment
+                    End="-14.4063388036494,87.3836587278328" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\P202_ETL\PRODUCTO_ORIGEN">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\P202_ETL\COMPRA_ORIGEN">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\P202_ETL\VENDEDOR_ORIGEN">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\P202_ETL\HECHOS_ORIGEN">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\P202_ETL\VENDEDOR_DESTINO">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\P202_ETL\PRODUCTO_DESTINO">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\P202_ETL\COMPRA_DESTINO">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\P202_ETL\HECHOS_DESTINO">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

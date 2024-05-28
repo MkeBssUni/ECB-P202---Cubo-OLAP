@@ -1,0 +1,75 @@
+﻿<DeploymentSnapshot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Target>
+    <Database>P202-Cubo-OLAP</Database>
+    <Server>localhost</Server>
+    <ConnectionString>Data Source=localhost;Timeout=0</ConnectionString>
+  </Target>
+  <Options>
+    <TransactionalDeployment>false</TransactionalDeployment>
+    <PartitionDeployment>DeployPartitions</PartitionDeployment>
+    <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
+    <ProcessingOption>DoNotProcess</ProcessingOption>
+    <OutputScript></OutputScript>
+    <ImpactAnalysisFile></ImpactAnalysisFile>
+    <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
+    <OptimizationSettingsDeployment>Deploy</OptimizationSettingsDeployment>
+    <WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+  </Options>
+  <Snapshot>
+    <ObjectSnapshots>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>tz+hE7sZuF8DJSdix+JYYJD3kC8=28/05/2024 09:21:09 a. m.28/05/2024 09:21:09 a. m.</TimeStamp>
+        <ID>
+          <String>Adventure Works ETL</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>lRcS/4v86TwzfW96bddqLnuinkQ=28/05/2024 09:24:19 a. m.28/05/2024 09:24:19 a. m.</TimeStamp>
+        <ID>
+          <String>Vista_ventas</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>MwTaxUi7hqfuIhH5XqDDTH8J8cw=28/05/2024 09:41:23 a. m.28/05/2024 09:27:03 a. m.</TimeStamp>
+        <ID>
+          <String>PRODUCTO DESTINO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>arNC+awgJkYO5kDkjyB7sYnsK+8=28/05/2024 09:42:22 a. m.28/05/2024 09:27:03 a. m.</TimeStamp>
+        <ID>
+          <String>COMPRA DESTINO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>bLsiE9BgTDhM1YtkldYs7aKrIFc=28/05/2024 09:42:52 a. m.28/05/2024 09:27:03 a. m.</TimeStamp>
+        <ID>
+          <String>VENDEDOR DESTINO</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>kQ2cQOznTG/sO1UJXjL3H6RptsY=28/05/2024 09:43:52 a. m.28/05/2024 09:27:02 a. m.UcyIOku3t+9ZO6xAIUmsP9jZnwA=28/05/2024 09:27:03 a. m.28/05/2024 09:27:03 a. m.</TimeStamp>
+        <ID>
+          <String>Cubo_ventas</String>
+        </ID>
+      </ObjectSnapshot>
+    </ObjectSnapshots>
+    <DatabaseSnapshot>
+      <Type>Microsoft.AnalysisServices.Database</Type>
+      <TimeStamp>gPeNGADMb177A160BVWlrOuRH64=28/05/2024 09:15:27 a. m.28/05/2024 09:15:27 a. m.</TimeStamp>
+      <ID>
+        <String>P202-Cubo-OLAP</String>
+      </ID>
+    </DatabaseSnapshot>
+    <Granularity>Coarse</Granularity>
+  </Snapshot>
+  <AssemblyLocations />
+  <ProcessingComplete>true</ProcessingComplete>
+  <LastDeployed>2024-05-28T15:44:38.566667Z</LastDeployed>
+</DeploymentSnapshot>

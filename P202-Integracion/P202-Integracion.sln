@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34902.65
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "P202-Integracion", "P202-Integracion.dtproj", "{C8FA5985-0F31-4D61-A5E0-8CF6450C32C5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C8FA5985-0F31-4D61-A5E0-8CF6450C32C5}.Development|Default.ActiveCfg = Development
+		{C8FA5985-0F31-4D61-A5E0-8CF6450C32C5}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EFDD31D8-1469-4844-9F26-2139356B5109}
+	EndGlobalSection
+EndGlobal

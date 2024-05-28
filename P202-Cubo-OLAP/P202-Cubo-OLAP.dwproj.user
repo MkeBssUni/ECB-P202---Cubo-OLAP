@@ -1,0 +1,29 @@
+<AnalysisServicesUserConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Configurations>
+    <Configuration>
+      <Name>Development</Name>
+      <Options>
+        <UserIDs>
+          <ConfigurationSetting>
+            <Id>Adventure Works ETL</Id>
+            <Name>Adventure Works ETL</Name>
+            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA3UVBLHyWAEWmiNq+GsdTZwAAAAAoAAAAQQBkAHYAZQBuAHQAdQByAGUAIABXAG8AcgBrAHMAIABFAFQATAAAABBmAAAAAQAAIAAAAMjhSL8dW4N5vTH8dc0hk4HgyHN3ZHhZjUJKB1S4wV45AAAAAA6AAAAAAgAAIAAAAPxwWfqWPitZCFp18sxsYU2PwRSm4HsmYxd7ygC2kyuWEAAAAOQtANsDN2tg0At5LJ8n8ddAAAAAXDH7mTI6ocVipcLADJXvzY90hwZXdDTqDCRanQ97JA1of2vYWOwYS2yiHW9PwiObcYeDIFEe+iVsTjLFICaBgA==</Value>
+          </ConfigurationSetting>
+        </UserIDs>
+        <UserPasswords>
+          <ConfigurationSetting>
+            <Id>Adventure Works ETL</Id>
+            <Name>Adventure Works ETL</Name>
+            <Value xsi:type="xsd:string">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA3UVBLHyWAEWmiNq+GsdTZwAAAAAoAAAAQQBkAHYAZQBuAHQAdQByAGUAIABXAG8AcgBrAHMAIABFAFQATAAAABBmAAAAAQAAIAAAAGauLs6+mmpK9uj6uAVS/3sk6+AlJV1ssd8TBTWrhcO9AAAAAA6AAAAAAgAAIAAAAPjIjrlUqU6eRxsJD2YdYP2+xE6p10PiUA4ctCI8nA5ZEAAAAEHSXV8XwSs3upDJh3eqd81AAAAAr5vq3SgA6mRQs0zdLYrxb1T55MtJgB1f210OJtkwMpz4vpJDOLgozqWXVQ/GNHoDDdU8Flt4Uq0AUdvR3vEX4g==</Value>
+          </ConfigurationSetting>
+        </UserPasswords>
+        <TargetServer>localhost</TargetServer>
+        <TargetDatabase>P202-Cubo-OLAP</TargetDatabase>
+        <StartObject>
+          <ObjectId></ObjectId>
+          <ObjectType>Current</ObjectType>
+        </StartObject>
+      </Options>
+    </Configuration>
+  </Configurations>
+</AnalysisServicesUserConfiguration>
